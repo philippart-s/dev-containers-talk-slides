@@ -175,9 +175,9 @@ Branches courtes, une par étape, fusionnées dans `main` avant la suivante. Com
 | 1 | thème | `feat/01-theme-base` | polices, `theme.css`, README | fait |
 | 2 | thème | `feat/02-footer` | footer OVHcloud / logo conf / @wildagsx | fait |
 | 3 | thème | `feat/03-templates` | templates `photo` et `cover` | fait |
-| 4a | thème + talk | `feat/04-git-install`, `docs/04-slidesk-2.23` | `theme.json`, footer indépendant du nom de dossier, doc SliDesk 2.23 | en cours |
-| 4b | thème | `feat/04-common-slides` | langues du thème, slides récurrentes, assets | |
-| 5 | talk | `feat/05-deck-skeleton` | install du thème, addons hub, toml, lang.json, 00-cover, 01-merci, CLAUDE.md | |
+| 4a | thème + talk | `feat/04-git-install`, `docs/04-slidesk-2.23` | `theme.json`, footer indépendant du nom de dossier, doc SliDesk 2.23 | fait |
+| 4b | thème | `feat/04-common-slides` | langues du thème, slides récurrentes, assets | fait |
+| 5 | talk | `feat/05-deck-skeleton` | install du thème, addons hub, toml, lang.json, 00-cover, 01-merci, CLAUDE.md | en cours |
 | 6 | talk | `feat/06-slides-problem` | 02 à 06 | |
 | 7 | talk | `feat/07-slides-devcontainers` | 07 à 10 | |
 | 8 | talk | `feat/08-slides-review` | 11, 12 | |
@@ -201,6 +201,7 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 | 9 | `!image(…$$clé$$…)` : faux avertissement « image not found » (chemin vérifié avant traduction), l'image s'affiche bien | ouvert, cosmétique | `<img src="…$$lang$$…">` en HTML |
 | 10 | Installation depuis git : pas de version figée (branche ou tag) | ouvert, utile | ne pas mettre à jour avant une conférence |
 | 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | ouvert, doc | variables au-dessus de `[slidesk]` |
+| 12 | Titre de l'onglet non traduisible (`TITLE` brut, sinon premier `h1`) | ouvert, cosmétique | `TITLE` fixe, identique dans les deux langues |
 
 ## 10. Vérifications faites (SliDesk 2.23.0)
 

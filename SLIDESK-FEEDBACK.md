@@ -19,8 +19,9 @@ Chaque point décrit le besoin, ce qui se passe, comment le reproduire et ce qui
 | 9 | Faux « image not found » avec `$$clé$$` dans `!image` | nouveau (2.23.0) |
 | 10 | Installation depuis git sans version figée | nouveau (2.23.0) |
 | 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | nouveau (2.23.0) |
+| 12 | Titre de l'onglet non traduisible | nouveau (2.23.0) |
 
-Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 11 celui de la 2.23.0.
+Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 12 celui de la 2.23.0.
 
 ## Nécessaires pour ce talk
 
@@ -129,3 +130,13 @@ Un addon poussé sur le hub est téléchargeable par tous. Un thème personnel n
 **Reproduire.** `slidesk.toml` = `[slidesk]` puis `MY_KEY="x"`, une slide avec `++MY_KEY++`, `slidesk save` → avertissement. Avec `MY_KEY="x"` au-dessus de `[slidesk]` → `x`.
 
 **Attendu.** Aligner la documentation sur le comportement (ou l'inverse).
+
+### 12. Titre de l'onglet non traduisible
+
+**Besoin.** Un talk en deux langues : le titre de l'onglet (et de l'export) dans la langue choisie.
+
+**Constat.** `TITLE` de `slidesk.toml` est inséré tel quel : `TITLE="$$cover_title$$"` donne `<title>$$cover_title$$</title>` avec `-l en`. Sans `TITLE`, le titre vient du premier `<h1>` ; une présentation sans `#` (couverture en `##`, conseillé pour éviter une slide fantôme) obtient « SliDesk ».
+
+**Reproduire.** `[slidesk] TITLE="$$t$$"`, `en.lang.json` avec `t`, `slidesk save -l en -t out` → `<title>$$t$$`.
+
+**Attendu.** Traduire `$$clé$$` dans `TITLE`, ou prendre le premier titre de slide (`h2`) quand il n'y a pas de `h1`.
