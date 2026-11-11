@@ -198,17 +198,17 @@ Branches courtes, une par étape, fusionnées avant la suivante. Commits atomiqu
 
 ## 9. Ce qui ne fonctionne pas tel quel dans SliDesk (2.22.3)
 
-Liste tenue à jour, à remonter sur le Discord de SliDesk. Pour chaque point : le constat, puis le contournement retenu ici.
+Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK.md`](SLIDESK-FEEDBACK.md). Ici : le constat court, si ce deck en dépend, et le contournement retenu.
 
-| # | Constat | Reproduire | Contournement |
+| # | Constat | Pour ce deck | Contournement |
 |---|---|---|---|
-| 1 | **Les notes speaker ne sont pas traduites** : les notes `/* … */` sont encodées (base64) avant le remplacement des `$$clé$$`. | note `/* $$k$$ */`, `slidesk -l en` → la vue speaker affiche `$$k$$` | composant `i18n.mjs` du thème |
-| 2 | **Le formatage markdown à l'intérieur d'une valeur n'est pas interprété** : la traduction a lieu après le rendu markdown. Une clé *entourée* de formatage fonctionne (`**$$k$$**`, `*$$k$$*`, `` `$$k$$` ``, `[$$k$$](url)`). | `"k": "avec **gras**"` → affiché `avec **gras**` | composant `i18n.mjs` (traduit avant le rendu markdown) |
-| 3 | **Un seul fichier de langue, à la racine du deck** : un thème ne peut pas fournir ses propres traductions. | — | `themes/wildagsx/i18n/<lang>.json` lu par le composant |
-| 4 | **La langue choisie n'est pas transmise aux composants** (ni exposée dans `window.slidesk`). | — | le composant lit `-l` / `--lang` dans `process.argv` (fragile) |
-| 5 | **`!include(...)` en première ligne d'un fichier est ignoré** : la directive n'est reconnue qu'après un saut de ligne ; la ligne s'affiche comme titre de slide. | `main.md` = `!include(slides)` sans ligne vide avant | ligne vide en tête de fichier |
-| 6 | **`COMMON_DIR` ne charge pas les templates `.sdt`** (seulement plugins et assets). | — | gabarit en thème, monté en sous-module |
-| 7 | **Pas d'addon privé sur le hub** : `theme install` télécharge sans authentification, donc tout addon poussé est public. | — | sous-module git |
+| 1 | **Les notes speaker ne sont pas traduites** : les notes `/* … */` sont encodées (base64) avant le remplacement des `$$clé$$`. | **nécessaire** (tout le script passe par des clés) | composant `i18n.mjs` du thème |
+| 2 | **Le formatage markdown à l'intérieur d'une valeur n'est pas interprété** : la traduction a lieu après le rendu markdown. Une clé *entourée* de formatage fonctionne (`**$$k$$**`, `*$$k$$*`, `` `$$k$$` ``, `[$$k$$](url)`). | **nécessaire** (phrases avec code inline, liens, mises en évidence, dans les slides et le script) | composant `i18n.mjs` (traduit avant le rendu markdown) |
+| 3 | **Un seul fichier de langue, à la racine du deck** : un thème ne peut pas fournir ses propres traductions. | **nécessaire** (slides récurrentes du gabarit) | `themes/wildagsx/i18n/<lang>.json` lu par le composant |
+| 4 | **La langue choisie n'est pas transmise aux composants** (ni exposée dans `window.slidesk`). | utile (nécessaire seulement à cause du contournement) | le composant lit `-l` / `--lang` dans `process.argv` (fragile) |
+| 5 | **`!include(...)` en première ligne d'un fichier est ignoré** : la directive n'est reconnue qu'après un saut de ligne ; la ligne s'affiche comme titre de slide. | gênant | ligne vide en tête de fichier |
+| 6 | **`COMMON_DIR` ne charge pas les templates `.sdt`** (seulement plugins et assets). | non | gabarit en thème, monté en sous-module |
+| 7 | **Pas d'addon privé sur le hub** : `theme install` télécharge sans authentification, donc tout addon poussé est public. | non | sous-module git |
 
 ## 10. Vérifications faites (SliDesk 2.22.3)
 
