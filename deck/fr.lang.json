@@ -17,6 +17,12 @@
     "onboarding_2": "🥶 Figer la configuration d’un projet (outils, frameworks, …)",
     "onboarding_3": "⚡ Accélérer l’onboarding",
     "onboarding_4": "📋 Faciliter l’onboarding (demandes d’installation, de droits, …)",
-    "onboarding_5": "🧑‍💻 Faciliter les petites modifications (unitaires ou non)"
+    "onboarding_5": "🧑‍💻 Faciliter les petites modifications (unitaires ou non)",
+    "experiment_title": "🧪 Tester / Expérimenter ⚗️",
+    "experiment_1": "🧰 Tester un outil / une version différente",
+    "experiment_2": "🧩 Tester un framework / une version différente",
+    "experiment_3": "🪞 Reproduire un cas de test / un environnement",
+    "experiment_4": "🪩 Être ISO production (?)",
+    "experiment_5": "🥽 Faire une manipulation risquée"
   }
 }

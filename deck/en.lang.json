@@ -16,6 +16,12 @@
     "onboarding_2": "🥶 Freezing a project’s setup (tools, frameworks, …)",
     "onboarding_3": "⚡ Speeding up onboarding",
     "onboarding_4": "📋 Making onboarding easier (installation requests, access rights, …)",
-    "onboarding_5": "🧑‍💻 Making small changes easier (one-off or not)"
+    "onboarding_5": "🧑‍💻 Making small changes easier (one-off or not)",
+    "experiment_title": "🧪 Testing / Experimenting ⚗️",
+    "experiment_1": "🧰 Trying a tool / a different version",
+    "experiment_2": "🧩 Trying a framework / a different version",
+    "experiment_3": "🪞 Reproducing a test case / an environment",
+    "experiment_4": "🪩 Matching production (?)",
+    "experiment_5": "🥽 Doing something risky"
   }
 }
