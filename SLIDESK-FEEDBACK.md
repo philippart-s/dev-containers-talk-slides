@@ -18,8 +18,9 @@ Chaque point décrit le besoin, ce qui se passe, comment le reproduire et ce qui
 | 8 | CSS d'un plugin de thème en chemin absolu | ouvert |
 | 9 | Faux « image not found » avec `$$clé$$` dans `!image` | nouveau (2.23.0) |
 | 10 | Installation depuis git sans version figée | nouveau (2.23.0) |
+| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | nouveau (2.23.0) |
 
-Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 et 10 celui de la 2.23.0.
+Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 11 celui de la 2.23.0.
 
 ## Nécessaires pour ce talk
 
@@ -120,3 +121,11 @@ Un addon poussé sur le hub est téléchargeable par tous. Un thème personnel n
 **Constat.** `slidesk theme install <url>` clone la branche par défaut en profondeur 1, et `slidesk theme update` / `slidesk update` reprennent le dernier commit de cette branche en écrasant le dossier. Il n'y a pas de moyen documenté de choisir une branche, un tag ou un commit.
 
 **Attendu.** Une référence optionnelle à l'installation (`…/theme.git#v1.2.0`, ou une option `--ref`), conservée par `update`.
+
+### 11. Documentation : où placer une variable `++CLÉ++`
+
+**Constat.** La page Configuration indique : « Any key under `[slidesk]` is accessible as an environment variable […] `++MY_CUSTOM_KEY++` ». En pratique, `++CLÉ++` est cherchée à la racine de `slidesk.toml` : une clé placée sous `[slidesk]` donne `⚠️ ++CLÉ++ is not set in the configuration` et reste affichée ; il faut écrire `++slidesk.CLÉ++`, ou placer la clé au-dessus de `[slidesk]`.
+
+**Reproduire.** `slidesk.toml` = `[slidesk]` puis `MY_KEY="x"`, une slide avec `++MY_KEY++`, `slidesk save` → avertissement. Avec `MY_KEY="x"` au-dessus de `[slidesk]` → `x`.
+
+**Attendu.** Aligner la documentation sur le comportement (ou l'inverse).

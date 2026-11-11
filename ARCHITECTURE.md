@@ -85,7 +85,7 @@ deck/
   ```
   Le chemin est relatif au fichier qui inclut. La ligne vide avant `!include` est obligatoire (§9, point 5).
 - **Clés de traduction** : `<slug>_<rôle>`, sans numéro, pour survivre à un réordonnancement : `cycle_title`, `cycle_1` … `cycle_7`, `cycle_notes`. Clés du gabarit : préfixe `common_` (`common_thanks_title`). Dans les `.lang.json`, les clés suivent l'ordre des slides.
-- **Variables d'édition** (`slidesk.toml`, `++CLÉ++`) : majuscules, `CONF_NAME`, `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL`.
+- **Variables d'édition** (`slidesk.toml`, `++CLÉ++`) : majuscules, `CONF_NAME`, `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL`. Elles vont **à la racine** du fichier, au-dessus de `[slidesk]` (§9, point 11).
 - **Classes CSS** : classes de slide en minuscules (`slide-text`, `schema`, `quote`) ; variables propres au gabarit préfixées `--wx-`.
 - **Images** : `assets/images/<catégorie>/<slug>.<ext>`, sans espace ; une photo = un crédit dans la slide. Image par langue : suffixe `-fr` / `-en` et clé `$$lang$$` dans le chemin.
 
@@ -200,6 +200,7 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 | 8 | CSS d'un plugin de thème référencée en chemin absolu (`/themes/…`) | ouvert, gênant | style du footer en feuille du thème |
 | 9 | `!image(…$$clé$$…)` : faux avertissement « image not found » (chemin vérifié avant traduction), l'image s'affiche bien | ouvert, cosmétique | `<img src="…$$lang$$…">` en HTML |
 | 10 | Installation depuis git : pas de version figée (branche ou tag) | ouvert, utile | ne pas mettre à jour avant une conférence |
+| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | ouvert, doc | variables au-dessus de `[slidesk]` |
 
 ## 10. Vérifications faites (SliDesk 2.23.0)
 
