@@ -1,6 +1,15 @@
 {
   "translations": {
     "cover_title": "🧰 Dev containers, the ultimate toolbox for developers?",
-    "cover_speaker": "Speaker: Stéphane Philippart - @wildagsx"
+    "cover_speaker": "Speaker: Stéphane Philippart - @wildagsx",
+    "setup_title": "The developer workstation",
+    "cycle_title": "👩‍💻 The lifecycle of a developer workstation 👨‍💻",
+    "cycle_1": "🧰 Installing tools",
+    "cycle_2": "🧩 Installing frameworks",
+    "cycle_3": "⬆️ Handling version upgrades",
+    "cycle_4": "💥 Handling conflicts",
+    "cycle_5": "🗑️ Cleaning up the machine",
+    "cycle_6": "💻 Switching to a new machine",
+    "cycle_7": "👥 Keeping the same setup on several machines"
   }
 }
