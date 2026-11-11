@@ -11,6 +11,12 @@
     "cycle_4": "💥 Gestion des conflits",
     "cycle_5": "🗑️ Nettoyage de la machine",
     "cycle_6": "💻 Changement de machine",
-    "cycle_7": "👥 Configuration identique sur plusieurs machines"
+    "cycle_7": "👥 Configuration identique sur plusieurs machines",
+    "onboarding_title": "🤝 Onboarding d’un projet (OSS ou non) 🤝",
+    "onboarding_1": "👩‍💻 Voir slide précédente",
+    "onboarding_2": "🥶 Figer la configuration d’un projet (outils, frameworks, …)",
+    "onboarding_3": "⚡ Accélérer l’onboarding",
+    "onboarding_4": "📋 Faciliter l’onboarding (demandes d’installation, de droits, …)",
+    "onboarding_5": "🧑‍💻 Faciliter les petites modifications (unitaires ou non)"
   }
 }

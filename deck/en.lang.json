@@ -10,6 +10,12 @@
     "cycle_4": "💥 Handling conflicts",
     "cycle_5": "🗑️ Cleaning up the machine",
     "cycle_6": "💻 Switching to a new machine",
-    "cycle_7": "👥 Keeping the same setup on several machines"
+    "cycle_7": "👥 Keeping the same setup on several machines",
+    "onboarding_title": "🤝 Onboarding onto a project (open source or not) 🤝",
+    "onboarding_1": "👩‍💻 See previous slide",
+    "onboarding_2": "🥶 Freezing a project’s setup (tools, frameworks, …)",
+    "onboarding_3": "⚡ Speeding up onboarding",
+    "onboarding_4": "📋 Making onboarding easier (installation requests, access rights, …)",
+    "onboarding_5": "🧑‍💻 Making small changes easier (one-off or not)"
   }
 }
