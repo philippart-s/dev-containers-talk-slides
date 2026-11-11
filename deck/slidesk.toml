@@ -1,0 +1,11 @@
+# Clés des plugins et variables ++CLÉ++ : à la racine, au-dessus de [slidesk]
+PLUGIN_NUMBER_FORMAT="%n"
+CONF_NAME="DevDays"
+# À REMPLACER avant la conférence (slide de fin : QR codes)
+SLIDES_URL="https://example.com/a-remplacer/slides"
+FEEDBACK_URL="https://example.com/a-remplacer/feedback"
+SOURCE_URL="https://example.com/a-remplacer/code-source"
+
+[slidesk]
+TITLE="Dev containers — Stéphane Philippart (@wildagsx)"
+WIDTH=1920
