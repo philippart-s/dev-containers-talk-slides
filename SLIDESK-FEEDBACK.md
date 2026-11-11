@@ -4,6 +4,23 @@ Constats faits avec SliDesk **2.22.3** en préparant un talk donné en français
 
 Chaque point décrit le besoin, ce qui se passe, comment le reproduire et ce qui serait attendu. Les points sont classés par importance pour ce talk.
 
+## État au 11/11/2026 (SliDesk 2.23.0)
+
+| # | Point | État |
+|---|---|---|
+| 1 | Notes speaker non traduites | ✅ réglé en 2.23.0 |
+| 2 | Markdown dans une traduction | ✅ réglé en 2.23.0 (markdown en ligne) |
+| 3 | Traductions d'un thème | ✅ réglé en 2.23.0 |
+| 4 | Langue inconnue des composants | sans objet après 1 à 3 |
+| 5 | `!include` en première ligne ignoré | ouvert |
+| 6 | `COMMON_DIR` sans templates | ouvert, non nécessaire ici |
+| 7 | Pas d'addon privé | ✅ réglé en 2.23.0 (installation depuis git) |
+| 8 | CSS d'un plugin de thème en chemin absolu | ouvert |
+| 9 | Faux « image not found » avec `$$clé$$` dans `!image` | nouveau (2.23.0) |
+| 10 | Installation depuis git sans version figée | nouveau (2.23.0) |
+
+Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 et 10 celui de la 2.23.0.
+
 ## Nécessaires pour ce talk
 
 ### 1. Les notes speaker ne sont pas traduites
@@ -83,3 +100,23 @@ Si les points 1 à 3 sont traités nativement, ce point devient secondaire.
 ### 7. Pas d'addon privé sur slidesk.link
 
 Un addon poussé sur le hub est téléchargeable par tous. Un thème personnel non public ne peut pas profiter de `theme install` / `slidesk update`.
+
+## Constats sur la 2.23.0
+
+### 9. `$$clé$$` dans le chemin d'un `!image` : avertissement « image not found » à tort
+
+**Besoin.** Une image qui change avec la langue (une carte avec ses légendes en français ou en anglais) : `!image(assets/carte-$$lang$$.png)`, avec `"lang": "fr"` / `"lang": "en"` dans les fichiers de langue.
+
+**Constat.** L'image affichée est la bonne dans chaque langue, mais `slidesk save` affiche `⚠️ image not found: assets/carte-$$lang$$.png` : l'existence du fichier est vérifiée avant le remplacement des `$$clé$$`.
+
+**Reproduire.** `assets/carte-fr.png`, `assets/carte-en.png`, une slide avec `!image(assets/carte-$$lang$$.png)`, `slidesk save -l en -t out` → avertissement, et `out/index.html` contient bien `carte-en.png`.
+
+**Attendu.** Vérifier le chemin après traduction, ou ne pas signaler un chemin qui contient une clé.
+
+### 10. Installation d'un thème depuis git : pas de version figée
+
+**Besoin.** Figer le thème d'un talk avant une conférence (une version ou un tag), tout en faisant évoluer le thème pour les autres talks.
+
+**Constat.** `slidesk theme install <url>` clone la branche par défaut en profondeur 1, et `slidesk theme update` / `slidesk update` reprennent le dernier commit de cette branche en écrasant le dossier. Il n'y a pas de moyen documenté de choisir une branche, un tag ou un commit.
+
+**Attendu.** Une référence optionnelle à l'installation (`…/theme.git#v1.2.0`, ou une option `--ref`), conservée par `update`.
