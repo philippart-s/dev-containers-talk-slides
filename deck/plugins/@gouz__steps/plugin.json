@@ -1,0 +1,10 @@
+{
+  "addScripts": ["plugins/@gouz__steps/steps.js"],
+  "addSpeakerScripts": ["plugins/@gouz__steps/stepsNotes.js"],
+  "addStyles": ["plugins/@gouz__steps/steps.css"],
+  "addSpeakerStyles": ["plugins/@gouz__steps/stepsNotes.css"],
+  "onSlideChange": "window.slidesk.prepareSteps();",
+  "onSpeakerViewSlideChange": "window.slidesk.prepareSteps();",
+  "files": ["steps.js", "steps.css", "stepsNotes.js", "stepsNotes.css"],
+  "tags": ["steps", "presentation"]
+}

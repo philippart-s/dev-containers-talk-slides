@@ -1,0 +1,8 @@
+{
+  "addHTML": "<div id=\"sd-progress\"></div>",
+  "onSlideChange": "window.slidesk.progressActive();",
+  "addStyles": ["plugins/@gouz__progress/progress.css"],
+  "addScripts": ["plugins/@gouz__progress/progress.js"],
+  "files": ["progress.js", "progress.css"],
+  "tags": ["progress", "presentation"]
+}

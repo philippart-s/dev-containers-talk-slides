@@ -1,0 +1,6 @@
+{
+  "addStyles": ["plugins/@gouz__qrcode/qrcode.css"],
+  "addScripts": ["plugins/@gouz__qrcode/qrcode.lib.js", "plugins/@gouz__qrcode/qrcode.js"],
+  "files": ["qrcode.css", "qrcode.js", "qrcode.lib.js"],
+  "tags": ["qrcode", "presentation"]
+}

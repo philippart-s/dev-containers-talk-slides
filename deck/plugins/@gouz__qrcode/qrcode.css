@@ -1,0 +1,26 @@
+.sd-qrcode {
+    background: white;
+    width: 128px;
+
+    svg {
+        width: 100%;
+    }
+}
+
+.sd-qrcode-wrapper {
+    position: relative;
+
+    .sd-qrcode-icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        inset: 0;
+
+        img {
+            width: 30%;
+            height: 30%;
+            background-color: #fff;
+        }
+    }
+}
