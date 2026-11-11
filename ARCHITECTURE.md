@@ -32,7 +32,8 @@ Options écartées :
 README.md                 # mode d'emploi complet
 theme.css                 # variables --sd-* et --wx-*, polices, classes de slides, surcharges @gouz
 fonts/Amatic_SC/, fonts/Montserrat/
-plugins/footer/           # plugin.json, footer.html, footer.css
+footer.css                # style du footer (pas dans le plugin : voir §9, point 8)
+plugins/footer/           # plugin.json, footer.html
 templates/photo/          # photo.sdt, photo.css, photo.js (intercalaire plein écran)
 templates/cover/          # cover.sdt, cover.css (fond et logo de conférence optionnels)
 components/i18n.mjs       # traduction des notes speaker et des clés communes (voir §4)
@@ -207,6 +208,7 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 | 3 | **Un seul fichier de langue, à la racine du deck** : un thème ne peut pas fournir ses propres traductions. | **nécessaire** (slides récurrentes du gabarit) | `themes/wildagsx/i18n/<lang>.json` lu par le composant |
 | 4 | **La langue choisie n'est pas transmise aux composants** (ni exposée dans `window.slidesk`). | utile (nécessaire seulement à cause du contournement) | le composant lit `-l` / `--lang` dans `process.argv` (fragile) |
 | 5 | **`!include(...)` en première ligne d'un fichier est ignoré** : la directive n'est reconnue qu'après un saut de ligne ; la ligne s'affiche comme titre de slide. | gênant | ligne vide en tête de fichier |
+| 8 | **La CSS d'un plugin de thème est référencée par un chemin absolu** (`/themes/…`) : casse en `file://` et sous un sous-chemin. | gênant (footer) | style du footer en feuille du thème (`footer.css`), le plugin ne garde que le HTML |
 | 6 | **`COMMON_DIR` ne charge pas les templates `.sdt`** (seulement plugins et assets). | non | gabarit en thème, monté en sous-module |
 | 7 | **Pas d'addon privé sur le hub** : `theme install` télécharge sans authentification, donc tout addon poussé est public. | non | sous-module git |
 

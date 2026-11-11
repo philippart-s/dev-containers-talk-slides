@@ -58,6 +58,16 @@ Si les points 1 à 3 sont traités nativement, ce point devient secondaire.
 
 ## Gênant, facile à contourner
 
+### 8. La CSS d'un plugin de thème est référencée par un chemin absolu
+
+**Besoin.** Un thème qui embarque un plugin (ici, un footer présent sur toutes les slides) avec sa feuille de style, et un deck exporté par `slidesk save` qui fonctionne partout : ouvert en `file://`, ou publié dans un sous-dossier (GitHub Pages d'un projet : `https://<user>.github.io/<repo>/`).
+
+**Constat.** Pour un plugin placé dans `themes/<thème>/plugins/<plugin>/`, les fichiers de `addStyles` sont écrits `href=/themes/<thème>/plugins/<plugin>/…`, avec un `/` en tête. Toutes les autres feuilles (thème, templates, plugins du deck) sont en chemin relatif (`themes/…`, `plugins/…`). Avec `slidesk present`, servi à la racine, ça marche. En `file://` ou sous un sous-dossier, la feuille du plugin n'est pas chargée, sans erreur visible.
+
+**Reproduire.** `themes/t/plugins/p/plugin.json` = `{"addStyles": ["plugins/p/p.css"]}`, `slidesk save -t out`, puis regarder `out/index.html` : `href=/themes/t/plugins/p/p.css`.
+
+**Attendu.** Un chemin relatif, comme pour les autres feuilles. Les scripts (`addScripts`) suivent probablement le même chemin : non vérifié.
+
 ### 5. `!include(...)` en première ligne d'un fichier est ignoré
 
 **Constat.** La directive n'est reconnue qu'après un saut de ligne. Un `main.md` qui contient seulement `!include(slides)` affiche une slide dont le titre est `!include(slides)`, sans message d'erreur.
