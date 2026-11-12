@@ -25,6 +25,9 @@
     "experiment_5": "🥽 Doing something risky",
     "vscode_title": "🖥️ Dev containers (in VS Code …) 🖥️",
     "ides_title": "🤝 Also works with other IDEs 🤝",
-    "ides_cde": "☁️ Cloud Development Environments (CDE): GitHub Codespaces, DevPod, …"
+    "ides_cde": "☁️ Cloud Development Environments (CDE): GitHub Codespaces, DevPod, …",
+    "config_title": "🐳 Basic setup 🐳",
+    "config_1": "🐳 Container runtime (Docker / Podman / …)",
+    "config_4": "🧸 macOS + Docker Desktop (but also works on Windows / Linux)"
   }
 }
