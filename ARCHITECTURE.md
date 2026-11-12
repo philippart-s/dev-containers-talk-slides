@@ -133,10 +133,11 @@ Un seul `theme.css` dans le gabarit (plus `footer.css` et les CSS des templates)
 | Classe | Usage | Pages du PDF |
 |---|---|---|
 | `#cover` | couverture : titre, logo de conf optionnel `[[logo]]` dessous (masque celui du footer), fond optionnel `[[bg]]` | 1 |
-| `#photo` + `dark` `light` `stretch` `title-right` `title-left` | intercalaire plein écran avec crédit | 2, 3, 11 |
-| `slide-text` | titre à gauche, liste à emoji sans puce | 4, 5, 6, 9, 10, 12, 13, 14, 16 |
+| `#photo` + `dark` `light` `stretch` `title-right` `title-left` `title-big` | intercalaire plein écran avec crédit | 2, 3, 11 |
+| `slide-text` (+ `steps`, `wide`, `compact`) | titre à gauche, liste à emoji sans puce ; `steps` : ligne par ligne ; `wide` : pleine largeur ; `compact` : liste longue | 4, 5, 6, 9, 10, 12, 13, 14, 16 |
 | `quote` | citation centrée en police de titre, titre masqué, barré possible (`~~Ring~~`) | 7 |
-| `schema` | une image sous le titre | 8, 15 |
+| `schema` (+ `no-title`) | image pleine largeur centrée entre titre et footer, crédit `<p class="credit">` dessous | 8, 15 |
+| `thanks` | slide de fin : grille de QR codes et image | 17 |
 | `table`, `cards` | tableaux, cartes | — |
 
 Surcharges des addons du hub (`footer#numslide`, `div#sd-progress`) : dans `theme.css`, jamais dans `@gouz__*`.
@@ -177,12 +178,12 @@ Branches courtes, une par étape, fusionnées dans `main` avant la suivante. Com
 | 3 | thème | `feat/03-templates` | templates `photo` et `cover` | fait |
 | 4a | thème + talk | `feat/04-git-install`, `docs/04-slidesk-2.23` | `theme.json`, footer indépendant du nom de dossier, doc SliDesk 2.23 | fait |
 | 4b | thème | `feat/04-common-slides` | langues du thème, slides récurrentes, assets | fait |
-| 5 | talk | `feat/05-deck-skeleton` | install du thème, addons hub, toml, lang.json, 00-cover, 01-merci, CLAUDE.md | en cours |
-| 6 | talk | `feat/06-slides-problem` | 02 à 06 | |
-| 7 | talk | `feat/07-slides-devcontainers` | 07 à 10 | |
-| 8 | talk | `feat/08-slides-review` | 11, 12 | |
-| 9 | talk | `feat/09-slides-end` | 13 à 16 | |
-| 10 | les deux | `docs/10-readme` | README finaux | |
+| 5 | talk | `feat/05-deck-skeleton` | install du thème, addons hub, toml, lang.json, 00-cover, 01-merci, CLAUDE.md | fait |
+| 6 | talk + thème | `feat/06-slides-problem`, `fix/06-photo-credit-text` | slides 02 à 06 ; crédit photo lisible sans lien | fait |
+| 7 | talk + thème | `feat/07-slides-devcontainers`, `feat/07-credit-class` | slides 07 à 10 ; `schema` en grille, `credit`, `title-big` | fait |
+| 8 | talk + thème | `feat/08-slides-review`, `feat/08-wide` | slides 11, 12 ; modificateur `wide` | fait |
+| 9 | talk + thème | `feat/09-slides-end`, `feat/09-compact` | slides 13 à 16 ; `compact`, `schema no-title`, slide de fin en grille | fait |
+| 10 | les deux | `docs/10-readme` | README finaux, bilan | fait |
 
 ## 9. Limites de SliDesk
 
@@ -220,4 +221,4 @@ cd deck
 slidesk save -l fr -t "$SCRATCH/out-fr" "$PWD"
 slidesk save -l en -t "$SCRATCH/out-en" "$PWD"
 ```
-Capturer chaque slide en Chromium headless 1920×1080 en `file://…/index.html#N`, comparer au PDF d'origine, dans les deux langues. Avant tout commit : `git diff -- 'deck/plugins/@gouz__*' 'deck/templates/@gouz__*'` doit être vide.
+Capturer chaque slide en Chromium headless en `file://…/index.html#N` avec `--window-size=1920,1201` (zone visible réelle de 1920×1080 : Chromium headless retire 121 px), comparer au PDF d'origine, dans les deux langues. Pour voir les puces `steps`, capturer une copie de la page avec `<style>.steps li{opacity:1!important}</style>`. Avant tout commit : `git diff -- 'deck/plugins/@gouz__*' 'deck/templates/@gouz__*'` doit être vide.

@@ -18,4 +18,9 @@ Conventions générales des decks : skill `slidesk-talk`, et le README du thème
 ## À faire avant DevDays
 - Logo DevDays → `deck/assets/images/conf-logo.svg` ; visuel éventuel de couverture → bloc `[[bg]]` / `[[logo]]` de `00-cover.md`.
 - URLs de la slide de fin dans `deck/slidesk.toml` : `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL` (aujourd'hui `https://example.com/a-remplacer/…`).
-- Images d'origine du PDF à fournir par Stéphane (photos, schéma VS Code © Microsoft) : les rendus du PDF ne servent que de référence.
+- Pousser le dépôt du thème sur GitHub (privé), puis remplacer le clone local par `slidesk theme install <url-git>` (README).
+- Notes speaker : aucune pour l'instant (pas de script dans le PDF) ; Stéphane les écrit lui-même, en `$$clé$$` (une clé par paragraphe) dans les deux fichiers de langue.
+
+## État
+- Port terminé (11/2026) : 17 slides `00` à `16`, FR et EN, vérifiées en capture 1920×1080. Images d'origine fournies par Stéphane (poste de dév, schéma VS Code, démos).
+- Ajouts au thème faits pendant le port : `no-title`, classe `credit`, `title-big`, `wide`, `compact`, `schema` en grille, slide de fin en grille (détail : `ARCHITECTURE.md` §8).
