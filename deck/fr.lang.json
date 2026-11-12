@@ -29,6 +29,7 @@
     "ides_cde": "☁️ Cloud Development Environments (CDE) : GitHub Codespaces, DevPod, …",
     "config_title": "🐳 Configuration de base 🐳",
     "config_1": "🐳 Container runtime (Docker / Podman / …)",
-    "config_4": "🧸 macOS + Docker Desktop (mais fonctionne avec Windows / Linux)"
+    "config_4": "🧸 macOS + Docker Desktop (mais fonctionne avec Windows / Linux)",
+    "demos_title": "Démos"
   }
 }
