@@ -17,7 +17,7 @@ Chaque deck installe le thème depuis son dépôt git privé (SliDesk ≥ 2.23.0
 
 ```bash
 cd deck
-slidesk theme install <url-git>/slidesk-theme-wildagsx.git   # installé dans themes/slidesk-theme-wildagsx/
+slidesk theme install https://github.com/philippart-s/slidesk-theme-wildagsx.git   # installé dans themes/slidesk-theme-wildagsx/
 slidesk theme update slidesk-theme-wildagsx                  # ou slidesk update : dernière version
 ```
 

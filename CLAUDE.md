@@ -10,7 +10,7 @@ Conventions générales des decks : skill `slidesk-talk`, et le README du thème
 
 ## Décisions prises (ne pas rouvrir sans demande)
 - Un seul deck pour le FR et l'EN : tout le texte (titres, puces, notes) passe par `$$clé$$` dans `deck/fr.lang.json` (défaut) et `deck/en.lang.json`.
-- Thème partagé installé par `slidesk theme install` dans `deck/themes/slidesk-theme-wildagsx/`, non versionné ici (`.gitignore`). En attendant que le dépôt du thème soit sur GitHub : clone local (README).
+- Thème partagé installé par `slidesk theme install` dans `deck/themes/slidesk-theme-wildagsx/`, non versionné ici (`.gitignore`), depuis le dépôt privé https://github.com/philippart-s/slidesk-theme-wildagsx.git.
 - Slides numérotées à partir de `00` : `00-cover`, `01-merci` (slide récurrente du thème), puis le contenu du PDF.
 - Conférence visée : DevDays. Pas encore de visuels : `deck/assets/images/conf-logo.svg` est une copie du badge « à remplacer » du thème, affichée en grand sur la couverture (bloc `[[logo]]`) et dans le footer. Pas de bloc `[[bg]]`.
 - Couverture : le titre et le logo de la conférence seulement ; pas de ligne « Speaker : … » (elle était propre au JUG SummerCamp).
@@ -19,7 +19,6 @@ Conventions générales des decks : skill `slidesk-talk`, et le README du thème
 ## À faire avant DevDays
 - Logo DevDays : remplacer `deck/assets/images/conf-logo.svg` (garder ce nom ; un PNG s'embarque en data URI, voir README du thème) ; visuel éventuel de couverture → bloc `[[bg]]` de `00-cover.md`.
 - URLs de la slide de fin dans `deck/slidesk.toml` : `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL` (aujourd'hui `https://example.com/a-remplacer/…`).
-- Pousser le dépôt du thème sur GitHub (privé), puis remplacer le clone local par `slidesk theme install <url-git>` (README).
 - Notes speaker : aucune pour l'instant (pas de script dans le PDF) ; Stéphane les écrit lui-même, en `$$clé$$` (une clé par paragraphe) dans les deux fichiers de langue.
 
 ## État

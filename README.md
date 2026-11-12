@@ -8,14 +8,12 @@ Le thème partagé n'est pas versionné dans ce dépôt : l'installer après un 
 
 ```bash
 cd deck
-slidesk theme install <url-git>/slidesk-theme-wildagsx.git
-# tant que le dépôt du thème n'est que local :
-# git clone file://$HOME/Developments/slidesk-theme-wildagsx themes/slidesk-theme-wildagsx
+slidesk theme install https://github.com/philippart-s/slidesk-theme-wildagsx.git
 ```
 
 Mettre à jour le thème : `cd deck && slidesk theme update slidesk-theme-wildagsx` (écrase les modifications locales du dossier du thème ; ne pas le faire juste avant une conférence).
 
-Quand le dépôt du thème sera sur GitHub, remplacer le clone local par l'installation depuis l'URL : `cd deck && slidesk theme install <url-git>/slidesk-theme-wildagsx.git` (remplace le dossier existant).
+Le dépôt du thème est privé : l'installation utilise tes identifiants git.
 
 Les addons du hub (`plugins/@gouz__*`, `templates/@gouz__split`) sont versionnés ici. Derrière le proxy d'entreprise, préfixer les commandes réseau de SliDesk de `NODE_TLS_REJECT_UNAUTHORIZED=0`.
 
