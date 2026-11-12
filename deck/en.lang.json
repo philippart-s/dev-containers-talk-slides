@@ -35,6 +35,11 @@
     "review_3": "🪫 Requires a machine with enough RAM and disk space (even with optimized images)",
     "review_4": "🔌 Offline mode may be impossible (if the images are not built beforehand)",
     "review_5": "🐛 Possible issues with the development environment rather than with the code",
-    "review_6": "😭 Integration in IntelliJ IDEA (Ultimate)"
+    "review_6": "😭 Integration in IntelliJ IDEA (Ultimate)",
+    "me_title": "🐻 What about me? 🐻",
+    "me_2": "🎉 Great for personal projects",
+    "me_3": "🤔 Not perfect for work",
+    "me_4": "🐳 A lot of work on image optimization and reproducibility",
+    "me_5": "☁️ Used in Cloud Development Environments"
   }
 }
