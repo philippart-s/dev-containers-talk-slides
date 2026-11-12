@@ -2,7 +2,6 @@
   "default": true,
   "translations": {
     "cover_title": "🧰 Les dev containers, la boîte à outils ultime pour les devs ?",
-    "cover_speaker": "Speaker : Stéphane Philippart - @wildagsx",
     "setup_title": "Le poste de dév",
     "cycle_title": "👩‍💻 Le cycle de vie d’un poste de dév 👨‍💻",
     "cycle_1": "🧰 Installation des outils",
