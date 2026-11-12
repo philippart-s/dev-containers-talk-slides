@@ -23,6 +23,7 @@
     "experiment_2": "🧩 Tester un framework / une version différente",
     "experiment_3": "🪞 Reproduire un cas de test / un environnement",
     "experiment_4": "🪩 Être ISO production (?)",
-    "experiment_5": "🥽 Faire une manipulation risquée"
+    "experiment_5": "🥽 Faire une manipulation risquée",
+    "vscode_title": "🖥️ Les dev containers (dans VS Code …) 🖥️"
   }
 }

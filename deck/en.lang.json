@@ -22,6 +22,7 @@
     "experiment_2": "🧩 Trying a framework / a different version",
     "experiment_3": "🪞 Reproducing a test case / an environment",
     "experiment_4": "🪩 Matching production (?)",
-    "experiment_5": "🥽 Doing something risky"
+    "experiment_5": "🥽 Doing something risky",
+    "vscode_title": "🖥️ Dev containers (in VS Code …) 🖥️"
   }
 }
