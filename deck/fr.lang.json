@@ -30,6 +30,12 @@
     "config_title": "🐳 Configuration de base 🐳",
     "config_1": "🐳 Container runtime (Docker / Podman / …)",
     "config_4": "🧸 macOS + Docker Desktop (mais fonctionne avec Windows / Linux)",
-    "demos_title": "Démos"
+    "demos_title": "Démos",
+    "review_title": "🙌 Alors, c’est vraiment la solution idéale ? 🙌",
+    "review_2": "🐳 Nécessite des connaissances en conteneurisation",
+    "review_3": "🪫 Nécessite une machine avec de la RAM et de l’espace disque (même en optimisant les images)",
+    "review_4": "🔌 Mode offline potentiellement impossible (si les images ne sont pas construites)",
+    "review_5": "🐛 Problèmes potentiels sur l’environnement de développement et non sur le code",
+    "review_6": "😭 Intégration dans IntelliJ IDEA (Ultimate)"
   }
 }
