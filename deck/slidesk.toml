@@ -1,8 +1,9 @@
 # Clés des plugins et variables ++CLÉ++ : à la racine, au-dessus de [slidesk]
 PLUGIN_NUMBER_FORMAT="%n"
 CONF_NAME="DevDays"
-# À REMPLACER avant la conférence (slide de fin : QR codes)
-SLIDES_URL="https://example.com/a-remplacer/slides"
+# Slide de fin (QR codes). SLIDES_URL : édition publiée dans talks-slides (README, « Publier une édition »)
+SLIDES_URL="https://philippart-s.github.io/talks-slides/dev-containers/devdays-2027/"
+# À REMPLACER avant la conférence
 FEEDBACK_URL="https://example.com/a-remplacer/feedback"
 SOURCE_URL="https://example.com/a-remplacer/code-source"
 
