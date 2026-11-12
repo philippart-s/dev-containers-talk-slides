@@ -23,6 +23,8 @@
     "experiment_3": "🪞 Reproducing a test case / an environment",
     "experiment_4": "🪩 Matching production (?)",
     "experiment_5": "🥽 Doing something risky",
-    "vscode_title": "🖥️ Dev containers (in VS Code …) 🖥️"
+    "vscode_title": "🖥️ Dev containers (in VS Code …) 🖥️",
+    "ides_title": "🤝 Also works with other IDEs 🤝",
+    "ides_cde": "☁️ Cloud Development Environments (CDE): GitHub Codespaces, DevPod, …"
   }
 }
