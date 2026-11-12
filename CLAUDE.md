@@ -15,10 +15,12 @@ Conventions générales des decks : skill `slidesk-talk`, et le README du thème
 - Conférence visée : DevDays. Pas encore de visuels : `deck/assets/images/conf-logo.svg` est une copie du badge « à remplacer » du thème, affichée en grand sur la couverture (bloc `[[logo]]`) et dans le footer. Pas de bloc `[[bg]]`.
 - Couverture : le titre et le logo de la conférence seulement ; pas de ligne « Speaker : … » (elle était propre au JUG SummerCamp).
 - Titre de l'onglet : `TITLE` fixe dans `slidesk.toml` (SliDesk ne le traduit pas).
+- Distribution : une copie figée par édition, FR et EN, dans talks-slides (`dev-containers/<édition>/`), publiée par le workflow `publish-talk.yml` de talks-slides lancé à la main (secret `TALKS_PUBLISH_TOKEN` dans talks-slides seulement). `slidesk deploy -t github` et l'action officielle écartés : un seul export sans `--lang`, pas d'installation de thème.
 
 ## À faire avant DevDays
 - Logo DevDays : remplacer `deck/assets/images/conf-logo.svg` (garder ce nom ; un PNG s'embarque en data URI, voir README du thème) ; visuel éventuel de couverture → bloc `[[bg]]` de `00-cover.md`.
-- URLs de la slide de fin dans `deck/slidesk.toml` : `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL` (aujourd'hui `https://example.com/a-remplacer/…`).
+- URLs de la slide de fin dans `deck/slidesk.toml` : `FEEDBACK_URL` (OpenFeedback DevDays), `SOURCE_URL` (aujourd'hui `https://example.com/a-remplacer/…`). `SLIDES_URL` est réglée sur l'édition `devdays-2027` de talks-slides.
+- Publier l'édition DevDays (README, « Publier une édition ») une fois le deck final.
 - Notes speaker : aucune pour l'instant (pas de script dans le PDF) ; Stéphane les écrit lui-même, en `$$clé$$` (une clé par paragraphe) dans les deux fichiers de langue.
 
 ## État
