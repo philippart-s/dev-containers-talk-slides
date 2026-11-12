@@ -20,8 +20,9 @@ Chaque point décrit le besoin, ce qui se passe, comment le reproduire et ce qui
 | 10 | Installation depuis git sans version figée | nouveau (2.23.0) |
 | 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | nouveau (2.23.0) |
 | 12 | Titre de l'onglet non traduisible | nouveau (2.23.0) |
+| 13 | Déploiement GitHub : pas de langues, pas de thème installé depuis git | nouveau (2.23.1) |
 
-Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 12 celui de la 2.23.0.
+Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 13 celui de la 2.23.x.
 
 ## Nécessaires pour ce talk
 
@@ -140,3 +141,13 @@ Un addon poussé sur le hub est téléchargeable par tous. Un thème personnel n
 **Reproduire.** `[slidesk] TITLE="$$t$$"`, `en.lang.json` avec `t`, `slidesk save -l en -t out` → `<title>$$t$$`.
 
 **Attendu.** Traduire `$$clé$$` dans `TITLE`, ou prendre le premier titre de slide (`h2`) quand il n'y a pas de `h1`.
+
+### 13. Déploiement sur GitHub Pages : un talk multilingue avec un thème installé depuis git
+
+**Besoin.** Publier par CI un talk en deux langues dont le thème est installé avec `slidesk theme install <url-git>` (dépôt privé, non versionné dans le talk).
+
+**Constat.** `slidesk deploy -t github` génère un workflow qui utilise l'action `yodamad-actions/slidesk@1.1.0`. Celle-ci lance un seul `slidesk save -t <dir> <workdir>` : pas d'option `--lang` (seule la langue par défaut est publiée), et aucune étape pour installer les thèmes ou addons installés depuis git, qui ne sont pas dans le dépôt (le `save` construit alors le talk sans son thème).
+
+**Contournement.** Workflow écrit à la main : binaire SliDesk de la release, clone du thème avec un token, un `slidesk save -l <lang>` par langue.
+
+**Attendu.** Dans le workflow généré ou l'action : une entrée pour les langues (un export par langue dans un sous-dossier), et la réinstallation des addons installés depuis git (avec un token optionnel pour un dépôt privé), par exemple via un `slidesk update` avant le `save`.

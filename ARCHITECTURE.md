@@ -203,6 +203,7 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 | 10 | Installation depuis git : pas de version figée (branche ou tag) | ouvert, utile | ne pas mettre à jour avant une conférence |
 | 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | ouvert, doc | variables au-dessus de `[slidesk]` |
 | 12 | Titre de l'onglet non traduisible (`TITLE` brut, sinon premier `h1`) | ouvert, cosmétique | `TITLE` fixe, identique dans les deux langues |
+| 13 | `slidesk deploy -t github` / action officielle : un seul export sans `--lang`, thème installé depuis git absent | ouvert | workflow `publish-talk.yml` de talks-slides |
 
 ## 10. Vérifications faites (SliDesk 2.23.0)
 
