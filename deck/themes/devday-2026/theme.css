@@ -1,0 +1,123 @@
+/* =====================================================================
+   Look DevDay 2026 — thème local, propre à ce talk et à cette édition.
+   Reprend le template PowerPoint de la conférence (couleurs, polices Namian
+   et Sora, halos, badge de parcours, page partenaires) par-dessus le gabarit
+   slidesk-theme-wildagsx, sans le modifier.
+   Après DevDay 2026 : supprimer ce dossier (voir CLAUDE.md).
+   Les sélecteurs sont plus précis que ceux du gabarit (:root:root, .sd-slide…) :
+   l'ordre de chargement des thèmes n'est pas garanti.
+   ===================================================================== */
+
+@font-face { font-family: Namian; src: url(fonts/Namian-Regular.ttf); font-weight: 400; }
+@font-face { font-family: Namian; src: url(fonts/Namian-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: Sora; src: url(fonts/Sora-Regular.ttf); font-weight: 400; }
+@font-face { font-family: Sora; src: url(fonts/Sora-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: Sora; src: url(fonts/Sora-Bold.ttf); font-weight: 700; }
+
+:root:root {
+  /* couleurs du template (thème PowerPoint DevDay 2026) */
+  --wx-color-bg: #141517;          /* dk1 */
+  --wx-color-surface: #242529;     /* dk2 : cartes */
+  --wx-color-text: #DDDBD4;        /* lt2 : texte courant */
+  --wx-color-on-dark: #F5F2EC;     /* lt1 */
+  --wx-color-primary: #C9AE71;     /* accent1 : or */
+  --wx-color-muted: #B2AFA8;       /* accent6 : légendes, crédits */
+  --wx-color-border: #3A3B40;
+  --devday-orange: #E1643E;        /* accent2 */
+  --sd-heading-color: #F5F2EC;
+
+  /* polices : Namian pour les titres, Sora pour le texte */
+  --wx-font-title: Namian, sans-serif;
+  --wx-font-text: Sora, sans-serif;
+
+  /* tailles reprises du template (36 pt pour un titre, 20 pt pour une liste, sur 13,33 pouces de large) */
+  --wx-title-size: 3.6vw;
+  --wx-cover-title-size: 4.4vw;
+  --wx-list-size: 2.05vw;
+  --wx-list-compact-size: 1.6vw;
+  --wx-quote-size: 2.7vw;
+  --wx-photo-title-size: 6vw;
+  --wx-photo-title-big-size: 9vw;
+}
+
+/* titres : Namian en casse normale, sans les petites capitales d'Amatic */
+.sd-slide h1, .sd-slide h2, .sd-slide h3 { font-weight: 400; letter-spacing: -0.01em; }
+.sd-slide.slide-text h2, .sd-slide.schema h2, .sd-slide.table h2 { margin-top: 3vh; }
+
+/* liens et texte en couleur primaire : or */
+.sd-slide a { color: var(--wx-color-primary); }
+
+/* ---- couverture : halo orange, mot « TRANSMUTATION », badge de parcours, logo en haut à droite ---- */
+.sd-slide:has(.cover-body) {
+  background:
+    url(assets/transmutation.png) left -2vw bottom 1vh / 104vw auto no-repeat,
+    url(assets/glow-orange.png) right 8vw center / auto 115vh no-repeat,
+    var(--wx-color-bg);
+}
+.sd-slide:has(.cover-body) .cover-body { align-items: flex-start; text-align: left; padding: 30vh 6vw 0 4.5vw; }
+.sd-slide:has(.cover-body) h2 { max-width: 62vw; text-align: left; color: var(--wx-color-on-dark); }
+.sd-slide:has(.cover-body) .cover-logo { position: absolute; top: 5vh; right: 4.5vw; }
+.sd-slide:has(.cover-body) .cover-logo img { max-height: 5vh; }
+
+/* badge de parcours : triangle orange et libellé, en haut à gauche */
+.sd-slide .devday-badge {
+  position: absolute; top: 5vh; left: 4.5vw;
+  display: inline-flex; align-items: center; gap: 0.6vw;
+  padding: 0.7vh 1.1vw; border: 1px solid var(--devday-orange); border-radius: 2vh;
+  background: rgba(225, 100, 62, 0.12);
+  font: 600 0.9vw/1 var(--wx-font-text); letter-spacing: 0.15em; color: var(--wx-color-on-dark);
+}
+.sd-slide .devday-badge::before {
+  content: ""; width: 1vw; height: 1vw;
+  background: url(assets/track-triangle.png) center / contain no-repeat;
+}
+
+/* ---- halos or : citation, fin, partenaires ---- */
+.sd-slide.quote, .sd-slide.thanks, .sd-slide.devday-partners {
+  background: url(assets/glow-gold.png) right -4vw bottom -6vh / auto 75vh no-repeat, var(--wx-color-bg);
+}
+.sd-slide.quote p, .sd-slide.quote p * { font-family: var(--wx-font-title); color: var(--wx-color-on-dark); }
+.sd-slide.thanks h2 { color: var(--wx-color-on-dark); }
+
+/* ---- slide speaker : images sur fond clair (le logo TADx est noir) ---- */
+.sd-slide.slide-text img[data-src*="/speaker/"], .sd-slide.slide-text img[src*="/speaker/"] {
+  background: #F5F2EC; border-radius: 1vw; padding: 1vh 0.8vw;
+}
+
+/* ---- intercalaires photo `light` : titre sombre (la couleur de texte du look est claire) ---- */
+.sd-slide.light:has(.photo-bg) h2 { color: #141517; text-shadow: 0 2px 14px rgba(255, 255, 255, 0.6); }
+.sd-slide.light .photo-credit, .sd-slide.light .photo-credit a { color: #141517; }
+
+/* ---- footer du gabarit, adapté au fond sombre ---- */
+.footer { color: var(--wx-color-text); }
+.footer .ovhcloud-logo { background-image: url(../slidesk-theme-wildagsx/assets/images/OVHcloud_logo_white.png); }
+div#sd-progress .sd-progression { border-color: rgba(245, 242, 236, 0.25); }
+
+/* ---- page partenaires (slides/17-partenaires.md) ---- */
+.sd-slide.devday-partners { justify-content: flex-start; padding-top: 3vh; }
+.sd-slide.devday-partners h2 { align-self: flex-start; margin: 0 0 3vh var(--wx-margin-x); color: var(--wx-color-on-dark); }
+.devday-partners .devday-thanks { align-self: flex-start; display: flex; flex-direction: column; gap: 1vh; margin: 0 var(--wx-margin-x); text-align: left; }
+.devday-thanks strong { font: 600 1.9vw/1.2 var(--wx-font-text); color: var(--wx-color-primary); }
+.devday-thanks span { font: 400 1.2vw/1.2 var(--wx-font-text); color: var(--wx-color-text); }
+.sd-slide.devday-partners p.partners-label { align-self: flex-start; margin: 4vh var(--wx-margin-x) 1.5vh; text-align: left; font: 600 0.95vw/1 var(--wx-font-text); letter-spacing: 0.3em; color: var(--wx-color-on-dark); }
+.devday-partners .tiers { width: calc(100% - 2 * var(--wx-margin-x)); margin: 0 var(--wx-margin-x); }
+.devday-partners .tier {
+  display: flex; align-items: center; gap: 3vw;
+  padding: 2.2vh 0; border-top: 1px solid var(--wx-color-border);
+}
+.devday-partners .tier > span {
+  flex: 0 0 13vw; text-align: left;
+  font: 600 1vw/1 var(--wx-font-text); letter-spacing: 0.25em; color: var(--wx-color-primary);
+}
+.devday-partners .tier img { height: 6vh; width: auto; object-fit: contain; } /* logos recadrés sur leur contenu */
+.devday-partners .tier.platinum img { height: 8.5vh; }
+.devday-partners .tier p { margin: 0; font-size: 1.3vw; color: var(--wx-color-text); text-align: left; }
+
+/* ---- couverture : sous-titre et pavé speaker, comme la couverture du template ---- */
+.sd-slide .cover-body p.devday-subtitle { margin: -1vh 0 0; font-size: 1.9vw; color: var(--wx-color-muted); text-align: left; }
+.sd-slide .cover-body .devday-speaker { display: flex; flex-direction: column; gap: 0.6vh; margin-top: 6vh; text-align: left; }
+.devday-speaker strong { font: 700 1.7vw/1.2 var(--wx-font-text); color: var(--wx-color-on-dark); }
+.devday-speaker span { font: 400 1.35vw/1.2 var(--wx-font-text); color: var(--devday-orange); }
+
+/* ---- footer : monogramme « dj » du template à la place du logotype (la couverture garde le logotype) ---- */
+.footer .conf-footer img { content: url(assets/devday-monogram.png); }

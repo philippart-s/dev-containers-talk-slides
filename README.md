@@ -65,7 +65,8 @@ Le workflow exporte la branche par défaut de ce dépôt : pousser avant de lanc
 | 13 | `13-speaker.md` | bio (slide du thème) |
 | 14 | `14-ovhcloud.md` | carte OVHcloud (slide du thème) |
 | 15 | `15-liens.md` | liens |
-| 16 | `16-merci.md` | merci, QR codes (slide du thème) |
+| 16 | `16-partenaires.md` | partenaires DevDay 2026 (édition DevDay 2026 seulement) |
+| 17 | `17-merci.md` | merci, QR codes (slide du thème) |
 
 Le numéro affiché en haut à gauche d'une slide est son rang à partir de 1 (la couverture est la slide 1).
 
