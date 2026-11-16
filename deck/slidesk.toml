@@ -2,10 +2,10 @@
 PLUGIN_NUMBER_FORMAT="%n"
 CONF_NAME="DevDay"
 # Slide de fin (QR codes). SLIDES_URL : édition publiée dans talks-slides (README, « Publier une édition »)
-SLIDES_URL="https://philippart-s.github.io/talks-slides/dev-containers/devday-2026/"
+SLIDES_URL="https://ovh.to/dev-days-2026-slides"
 # À REMPLACER avant la conférence
-FEEDBACK_URL="https://example.com/a-remplacer/feedback"
-SOURCE_URL="https://example.com/a-remplacer/code-source"
+FEEDBACK_URL="https://ovh.to/dev-days-2026-feedback"
+SOURCE_URL="https://ovh.to/dev-containers-sources"
 
 [slidesk]
 TITLE="Dev containers — Stéphane Philippart (@wildagsx)"
