@@ -2,7 +2,7 @@
 
 Ce document fixe les choix faits avant d'écrire le moindre fichier de deck : où vit chaque chose, comment elle s'appelle, comment on change de langue, ce qui est commun à tous les talks et ce qui est propre à un talk.
 
-SliDesk ≥ 2.23.0. Les comportements cités ont été vérifiés dans les sources de SliDesk et par des essais (voir « Vérifications faites »).
+SliDesk ≥ 2.25 (2.23.0 au moment du port). Les comportements cités ont été vérifiés dans les sources de SliDesk et par des essais (voir « Vérifications faites »).
 
 ## 1. Deux dépôts
 
@@ -23,7 +23,7 @@ slidesk theme update slidesk-theme-wildagsx                  # ou slidesk update
 
 - Le thème est installé sous le **nom du dépôt** : tous les chemins des decks disent `themes/slidesk-theme-wildagsx/`.
 - Le clone garde son `.git` ; il est exclu du dépôt du talk (`.gitignore`) et réinstallé après un `git clone` du talk.
-- Pas de version figée : la mise à jour prend le dernier commit de la branche par défaut et écrase les modifications locales. Avant une conférence, ne pas mettre à jour.
+- Sans référence, la mise à jour prend le dernier commit de la branche par défaut et écrase les modifications locales. Depuis SliDesk 2.24, `install <url>#<tag>` fige le thème (tag, branche ou SHA complet), et `update` garde la référence.
 - Développer le gabarit sans pousser : cloner la branche du dépôt local dans `deck/themes/slidesk-theme-wildagsx/` (procédure dans le README du thème, §6).
 
 Options écartées :
@@ -83,7 +83,7 @@ deck/
   $$ovhcloud_notes$$
   */
   ```
-  Le chemin est relatif au fichier qui inclut. La ligne vide avant `!include` est obligatoire (§9, point 5).
+  Le chemin est relatif au fichier qui inclut. La ligne vide avant `!include` était obligatoire jusqu'à SliDesk 2.23 (§9, point 5) ; elle reste dans les fichiers du talk, sans effet.
 - **Clés de traduction** : `<slug>_<rôle>`, sans numéro, pour survivre à un réordonnancement : `cycle_title`, `cycle_1` … `cycle_7`, `cycle_notes`. Clés du gabarit : préfixe `common_` (`common_thanks_title`). Dans les `.lang.json`, les clés suivent l'ordre des slides.
 - **Variables d'édition** (`slidesk.toml`, `++CLÉ++`) : majuscules, `CONF_NAME`, `SLIDES_URL`, `FEEDBACK_URL`, `SOURCE_URL`. Elles vont **à la racine** du fichier, au-dessus de `[slidesk]` (§9, point 11).
 - **Classes CSS** : classes de slide en minuscules (`slide-text`, `schema`, `quote`) ; variables propres au gabarit préfixées `--wx-`.
@@ -194,16 +194,18 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 | 1 | Notes speaker non traduites | **réglé en 2.23.0** | — |
 | 2 | Markdown dans une valeur non interprété | **réglé en 2.23.0** (markdown en ligne) | une note longue = une clé par paragraphe |
 | 3 | Un thème ne peut pas fournir ses traductions | **réglé en 2.23.0** | — |
-| 4 | Langue non transmise aux composants | sans objet (plus de composant) | — |
-| 5 | `!include(...)` en première ligne d'un fichier ignoré, sans message | ouvert, gênant | ligne vide en tête de fichier |
-| 6 | `COMMON_DIR` ne charge pas les templates `.sdt` | ouvert, non nécessaire | thème installé par git |
+| 4 | Langue non transmise aux composants | sans objet (plus de composant) ; la vue speaker a sa langue depuis 2.24 | — |
+| 5 | `!include(...)` en première ligne d'un fichier ignoré, sans message | **réglé en 2.24.0** | — |
+| 6 | `COMMON_DIR` ne charge pas les templates `.sdt` | **réglé en 2.24.0**, non utilisé | thème installé par git |
 | 7 | Pas d'addon privé sur le hub | **réglé en 2.23.0** par l'installation depuis git | — |
-| 8 | CSS d'un plugin de thème référencée en chemin absolu (`/themes/…`) | ouvert, gênant | style du footer en feuille du thème |
-| 9 | `!image(…$$clé$$…)` : faux avertissement « image not found » (chemin vérifié avant traduction), l'image s'affiche bien | ouvert, cosmétique | `<img src="…$$lang$$…">` en HTML |
-| 10 | Installation depuis git : pas de version figée (branche ou tag) | ouvert, utile | ne pas mettre à jour avant une conférence |
-| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | ouvert, doc | variables au-dessus de `[slidesk]` |
-| 12 | Titre de l'onglet non traduisible (`TITLE` brut, sinon premier `h1`) | ouvert, cosmétique | `TITLE` fixe, identique dans les deux langues |
-| 13 | `slidesk deploy -t github` / action officielle : un seul export sans `--lang`, thème installé depuis git absent | ouvert | workflow `publish-talk.yml` de talks-slides |
+| 8 | CSS d'un plugin de thème référencée en chemin absolu (`/themes/…`) | **réglé en 2.24.0** | style du footer laissé en feuille du thème |
+| 9 | `!image(…$$clé$$…)` : faux avertissement « image not found » (chemin vérifié avant traduction), l'image s'affiche bien | **réglé en 2.24.0** | — |
+| 10 | Installation depuis git : pas de version figée (branche ou tag) | **réglé en 2.24.0** (`#<ref>`, SHA complet seulement) | — |
+| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | **réglé en 2.24.0** (racine puis `[slidesk]`) | variables gardées au-dessus de `[slidesk]` |
+| 12 | Titre de l'onglet non traduisible (`TITLE` brut, sinon premier `h1`) | **réglé en 2.24.0** | `TITLE="$$tab_title$$"` |
+| 13 | `slidesk deploy -t github` / action officielle : un seul export sans `--lang`, thème installé depuis git absent | **réglé en 2.24.0** (toutes les langues, addons git) | workflow `publish-talk.yml` gardé : copie par édition dans talks-slides |
+| 14 | `theme install <url>#<ref>` refuse un SHA court | ouvert, mineur | SHA complet ou tag |
+| 15 | `slidesk export` : pas de footer du thème ni de numéro, page vide en tête des slides à steps | ouvert | PDF en document de lecture seulement |
 
 ## 10. Vérifications faites (SliDesk 2.23.0)
 
@@ -214,6 +216,14 @@ Version détaillée, rédigée pour le créateur de SliDesk : [`SLIDESK-FEEDBACK
 - Footer installé sous `themes/slidesk-theme-wildagsx/` : logos OVHcloud (foncé, blanc sur `dark`), badge sans logo de conf, logo du deck, masquage sur une couverture `[[logo]]`.
 - Thème cloné à la main depuis un dépôt local : `slidesk theme update` récupère le nouveau commit ; le clone ne suit que la branche clonée.
 - Un `main.md` qui commence par `!include(...)` sans ligne vide avant n'inclut rien (2.22.3).
+
+## 10 bis. Vérifications faites (SliDesk 2.25.1)
+
+- `main.md` réduit à `!include(slides)` : inclusion faite.
+- `TITLE="$$t$$ talk"` avec `-l en` : onglet traduit.
+- `!image(assets/m-$$lang$$.png)` : bonne image, plus d'avertissement.
+- `++K++` avec `K` sous `[slidesk]` : valeur affichée.
+- `theme install <url>#<SHA complet>` : thème au commit demandé, `theme update` le garde ; `#main` suit la branche ; `#<SHA court>` échoue (« couldn't find remote ref »).
 
 ## 11. Vérifier un deck
 
