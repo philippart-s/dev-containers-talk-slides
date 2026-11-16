@@ -1,10 +1,10 @@
 # Clés des plugins et variables ++CLÉ++ : à la racine, au-dessus de [slidesk]
 PLUGIN_NUMBER_FORMAT="%n"
-CONF_NAME="DevDay"
+CONF_NAME="AFUP Tours"
 # Slide de fin (QR codes). SLIDES_URL : édition publiée dans talks-slides (README, « Publier une édition »)
-SLIDES_URL="https://ovh.to/devday-2026-slides"
+SLIDES_URL="https://ovh.to/afup-tours-2026-slides"
 # À REMPLACER avant la conférence
-FEEDBACK_URL="https://ovh.to/devday-2026-feedback"
+FEEDBACK_URL="https://ovh.to/afup-tours-2026-feedback"
 SOURCE_URL="https://ovh.to/dev-containers-sources"
 
 [slidesk]
