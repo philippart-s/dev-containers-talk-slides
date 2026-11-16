@@ -8,5 +8,5 @@ FEEDBACK_URL="https://ovh.to/afup-tours-2026-feedback"
 SOURCE_URL="https://ovh.to/dev-containers-sources"
 
 [slidesk]
-TITLE="Dev containers — Stéphane Philippart (@wildagsx)"
+TITLE="$$tab_title$$"
 WIDTH=1920

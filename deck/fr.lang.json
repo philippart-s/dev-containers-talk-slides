@@ -1,6 +1,7 @@
 {
   "default": true,
   "translations": {
+    "tab_title": "Les dev containers — Stéphane Philippart (@wildagsx)",
     "cover_title": "🧰 Les dev containers, la boîte à outils ultime pour les devs ?",
     "setup_title": "Le poste de dév",
     "cycle_title": "👩‍💻 Le cycle de vie d’un poste de dév 👨‍💻",

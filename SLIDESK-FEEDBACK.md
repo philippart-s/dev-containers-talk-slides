@@ -4,25 +4,27 @@ Constats faits avec SliDesk **2.22.3** en préparant un talk donné en français
 
 Chaque point décrit le besoin, ce qui se passe, comment le reproduire et ce qui serait attendu. Les points sont classés par importance pour ce talk.
 
-## État au 11/11/2026 (SliDesk 2.23.0)
+## État au 16/11/2026 (SliDesk 2.25.1)
 
 | # | Point | État |
 |---|---|---|
 | 1 | Notes speaker non traduites | ✅ réglé en 2.23.0 |
 | 2 | Markdown dans une traduction | ✅ réglé en 2.23.0 (markdown en ligne) |
 | 3 | Traductions d'un thème | ✅ réglé en 2.23.0 |
-| 4 | Langue inconnue des composants | sans objet après 1 à 3 |
-| 5 | `!include` en première ligne ignoré | ouvert |
-| 6 | `COMMON_DIR` sans templates | ouvert, non nécessaire ici |
+| 4 | Langue inconnue des composants | sans objet après 1 à 3 ; vue speaker marquée de la langue en 2.24.0 |
+| 5 | `!include` en première ligne ignoré | ✅ réglé en 2.24.0 |
+| 6 | `COMMON_DIR` sans templates | ✅ réglé en 2.24.0 (non utilisé ici) |
 | 7 | Pas d'addon privé | ✅ réglé en 2.23.0 (installation depuis git) |
-| 8 | CSS d'un plugin de thème en chemin absolu | ouvert |
-| 9 | Faux « image not found » avec `$$clé$$` dans `!image` | nouveau (2.23.0) |
-| 10 | Installation depuis git sans version figée | nouveau (2.23.0) |
-| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | nouveau (2.23.0) |
-| 12 | Titre de l'onglet non traduisible | nouveau (2.23.0) |
-| 13 | Déploiement GitHub : pas de langues, pas de thème installé depuis git | nouveau (2.23.1) |
+| 8 | CSS d'un plugin de thème en chemin absolu | ✅ réglé en 2.24.0 |
+| 9 | Faux « image not found » avec `$$clé$$` dans `!image` | ✅ réglé en 2.24.0 |
+| 10 | Installation depuis git sans version figée | ✅ réglé en 2.24.0 (`<url>#<ref>`) — voir 14 |
+| 11 | Doc : `++CLÉ++` lue à la racine de `slidesk.toml`, pas dans `[slidesk]` | ✅ réglé en 2.24.0 |
+| 12 | Titre de l'onglet non traduisible | ✅ réglé en 2.24.0 |
+| 13 | Déploiement GitHub : pas de langues, pas de thème installé depuis git | ✅ réglé en 2.24.0 |
+| 14 | `#<ref>` refuse un SHA court | nouveau (2.25.1), mineur |
+| 15 | `slidesk export` : footer du thème absent, page vide en tête des slides à steps | nouveau (2.25.1) |
 
-Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 13 celui de la 2.23.x.
+Les points 1 à 8 ci-dessous décrivent le comportement de la 2.22.3 ; les points 9 à 13 celui de la 2.23.x ; les points 14 et 15 celui de la 2.25.1. Tous sauf les 14 et 15 sont réglés : leur description est gardée pour l'historique.
 
 ## Nécessaires pour ce talk
 
@@ -151,3 +153,25 @@ Un addon poussé sur le hub est téléchargeable par tous. Un thème personnel n
 **Contournement.** Workflow écrit à la main : binaire SliDesk de la release, clone du thème avec un token, un `slidesk save -l <lang>` par langue.
 
 **Attendu.** Dans le workflow généré ou l'action : une entrée pour les langues (un export par langue dans un sous-dossier), et la réinstallation des addons installés depuis git (avec un token optionnel pour un dépôt privé), par exemple via un `slidesk update` avant le `save`.
+
+## Constats sur la 2.25.1
+
+### 14. `theme install <url>#<ref>` : un SHA court est refusé
+
+**Besoin.** Figer un thème sur un commit précis, en copiant le SHA abrégé affiché par `git log --oneline`.
+
+**Constat.** `#<SHA complet>`, `#<branche>` et (d'après la doc) `#<tag>` fonctionnent, et `update` garde la référence. Avec un SHA abrégé (`#03487dd`) : `could not be checked out: fatal: couldn't find remote ref 03487dd`, et aucun dossier n'est créé.
+
+**Reproduire.** `slidesk theme install https://github.com/<user>/<theme>.git#<7 premiers caractères d'un commit>`.
+
+**Attendu.** Accepter un SHA abrégé (fetch complet puis `git checkout <sha>`), ou préciser dans la doc qu'un commit s'écrit avec son SHA complet.
+
+### 15. `slidesk export` : le footer du thème disparaît, et une slide à steps commence par une page vide
+
+**Besoin.** Un PDF de l'édition, joint à la publication, qui ressemble aux slides projetées : footer du thème (logo OVHcloud, logo de la conférence, compte du speaker), numéro de slide.
+
+**Constat.** `slidesk export -l fr -o talk.pdf` (Chromium, macOS) : 52 pages pour 17 slides, steps bien dépliés, signets présents. Mais aucune page n'a le footer injecté par le plugin du thème (`themes/<thème>/plugins/footer/`), ni le numéro (`@gouz/number`), ni la barre de progression (`@gouz/progress`). Une slide `@gouz/steps` donne d'abord une page avec son titre seul, avant le premier élément révélé.
+
+**Reproduire.** Un thème avec un plugin qui ajoute un `<footer>` à chaque slide (`addHTML`), une slide `.steps` de quatre puces ; `slidesk export -o out.pdf` → pas de footer, et cinq pages pour la slide à steps, la première sans puce.
+
+**Attendu.** Garder dans l'export le HTML et le style ajoutés par les plugins de thème (au moins une option pour les inclure ; masquer la barre de progression peut se comprendre), et commencer une slide à steps par son premier élément révélé, ou le rendre réglable.

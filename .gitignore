@@ -2,3 +2,4 @@
 deck/themes/slidesk-theme-wildagsx/
 
 .DS_Store
+.claude/settings.local.json
