@@ -44,7 +44,7 @@ Chaque édition est publiée, figée, dans [talks-slides](https://github.com/phi
 2. Quand le deck est final : dans talks-slides, Actions → « Publier une édition de talk » → Run workflow, avec `repo` = `dev-containers-talk-slides`, `talk` = `dev-containers`, `talk-title` = `Dev containers`, `edition` (ex. `afup-tours-2026`) et `edition-label` (ex. `AFUP Tours 2026`). `dry-run` construit sans publier (artefact à télécharger) ; `overwrite` remplace une édition déjà publiée ; `slidesk-version` fige une version de SliDesk (dernière release par défaut) ; `theme-ref` fige le thème (tag, branche ou SHA complet) ; `pdf` ajoute un PDF par langue, lié depuis la page de l'édition.
 3. Vérifier l'URL de l'édition une fois GitHub Pages reconstruit (une à deux minutes).
 
-Le workflow exporte la branche par défaut de ce dépôt : pousser avant de lancer.
+Le workflow exporte la branche par défaut de ce dépôt (pousser avant de lancer), ou la référence donnée dans `talk-ref`. Pour corriger une édition passée sans toucher à `main` : partir de son tag (ex. `devday-2026`), committer la correction, poser un tag `<édition>.N` (ex. `devday-2026.1`), le pousser, puis relancer le workflow avec `talk-ref` = ce tag et `overwrite` coché.
 
 ## Contenu
 
